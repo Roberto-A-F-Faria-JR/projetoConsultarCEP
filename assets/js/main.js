@@ -13,7 +13,7 @@ $("#submit").on("click", function () {
     },
     dataType: "json",
     success: function (data) {
-      if (data != null) {
+      if (data != null && data != false) {
         var html = "<h4>O CEP consultado é:</h4>";
 
         $.each(data, function (i, v) {
@@ -25,6 +25,25 @@ $("#submit").on("click", function () {
         });
 
         $("#divResponse").html(html);
+      } else if (data == false) {
+        $("#divResponse").html("");
+
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          },
+        });
+
+        Toast.fire({
+          icon: "warning",
+          title: "CEP invalido verifique a quantidade de números informado !!",
+        });
       } else {
         $("#divResponse").html("");
 
