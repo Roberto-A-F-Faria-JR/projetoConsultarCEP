@@ -5,8 +5,6 @@ function validarNumero(input) {
 $("#submit").on("click", function () {
   var numberCEP = $("#numberCEP").val();
 
-  console.log(numberCEP);
-
   $.ajax({
     method: "POST",
     url: "../controller/controllerCEP.php",
@@ -17,16 +15,19 @@ $("#submit").on("click", function () {
     success: function (data) {
       if (data != null) {
         var html = "<h4>O CEP consultado é:</h4>";
+
         $.each(data, function (i, v) {
           if (v != "") {
             html += "<div>";
-              html += "<b>"+i+"</b>: "+v;
+            html += "<b>" + i + "</b>: " + v;
             html += "</div>";
           }
         });
 
         $("#divResponse").html(html);
       } else {
+        $("#divResponse").html("");
+
         const Toast = Swal.mixin({
           toast: true,
           position: "top-end",
@@ -38,6 +39,7 @@ $("#submit").on("click", function () {
             toast.onmouseleave = Swal.resumeTimer;
           },
         });
+
         Toast.fire({
           icon: "error",
           title: "CEP não encontrado !!",

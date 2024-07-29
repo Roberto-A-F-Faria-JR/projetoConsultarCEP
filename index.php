@@ -14,7 +14,7 @@
 <body>
   <main>
     <section class="container">
-      <div class="row">        
+      <div class="row">
         <div class="text-center" id="pulse">
           <h1 id="title">CLIQUE PARA BUSCAR UM CEP</h1>
           <a href="app/view/searchCEP.php"><img id="sizeImg" src="assets/img/cep.jpeg"></a>

@@ -15,13 +15,13 @@ input::-webkit-inner-spin-button {
 #title {
   color: white;
   font-weight: bold;
-  -webkit-text-stroke: 2px #959595;
+  -webkit-text-stroke: 2px #555555;
 }
 
 #sizeImg {
   width: 40rem;
   border-radius: 70px;
-  border: 2px solid #959595;
+  border: 2px solid #b1b1b1;
   margin-top: 50px;
 }
 
@@ -39,15 +39,24 @@ form{
   justify-content: center;
   align-items: center;
   background-color: white;
-  border: 2px solid #959595;
+  border: 2px solid #b1b1b1;
   width: 40rem;
   gap: 20px;
   padding: 30px;
+  border-radius: 30px;
 }
 
-.labelNumberCEP{
+#labelNumberCEP{
   font-size: 19px;
   font-weight: bolder;
+  margin-bottom: 6px;
+}
+
+#textObs{
+  font-size: 11px;
+  color: rgb(241, 103, 103);
+  margin-top: 6px;
+  margin-bottom: 0px;
 }
 
 #divResponse{
