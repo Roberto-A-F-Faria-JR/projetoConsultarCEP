@@ -1,10 +1,13 @@
 <?php
 
-require __DIR__.'/vendor/autoload.php';
+require '../model/viaCEP.php';
 
 use \App\model\viaCEP;
 
-$ZipCodeAddress = viaCEP::searchCEP("06226030");
+if (strlen($_POST['cep']) >= 8) {
+    $result = viaCEP::searchCEP($_POST['cep']);
+} else {
+    $result = NULL;
+}
 
-
-print_r($ZipCodeAddress);
+echo json_encode($result);
